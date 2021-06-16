@@ -1,0 +1,10 @@
+<div>
+    <% characters.forEach(character => { %>
+        <div>
+            <%= character.name %>
+            <%= character.rank %>
+            <img src='<%= character.image %>'>
+            <a href='/details/<%= character.id %>'>Details</a>
+        </div>
+    <% }) %>
+</div>

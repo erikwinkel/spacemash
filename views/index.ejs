@@ -1,5 +1,22 @@
-<div>
+<div class="container">
     <h2>Which Star Wars character do you like more?</h2>
-    <img src='<%= characters[0].image %>'>
-    <img src='<%= characters[1].image %>'>
+    <form method="POST" action="/?_method=PUT">
+       <div class="col">
+           <label>
+               <img src='<%= characters[0].image %>'>
+               <a href='/details/<%= characters[0].id %>'>Details</a>
+               <input class="radio" type="radio" name="vote" value="<%= characters[0].name %>" checked> 
+               <%= characters[0].name %> Rating: <%= characters[0].rank %>
+           </label>
+       </div>
+       <div class="col">
+           <label>
+               <img src='<%= characters[1].image %>'>
+               <a href='/details/<%= characters[1].id %>'>Details</a>
+               <input class="radio" type="radio" name="vote" value="<%= characters[1].name %>"> 
+               <%= characters[1].name %> Rating: <%= characters[1].rank %>
+           </label>
+       </div>
+        <input type="submit" value="Vote">
+    </form>
 </div>

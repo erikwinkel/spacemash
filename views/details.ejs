@@ -1,0 +1,41 @@
+<h2><%= character.name %></h2>
+<h3><%= character.rank %></h3>
+<img src='<%= character.image %>'>
+
+<h5>Comments</h5>
+<% if(comments.length) { %>
+    <% comments.forEach(comment => { %>
+        <div>
+            <p><%= comment.user.username %></p>
+            <p><%= comment.content %></p>
+            <div class="controls <%= comment.user.username %>Comment">
+                <a href="/comments/<%= comment.id %>">Edit</a>
+                <form method="POST" action="/comments/<%= comment.id %>?_method=DELETE">
+                    <input type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    <% }) %>
+<% } else { %>
+    <p>No comments yet</p>
+<% } %>
+
+<form id="newComment" method="POST" action="/details/<%= character.id %>/comments">
+    <h4>Comment on this character</h4>
+    <input hidden id="commenter" type="text" name="name">
+    <input type="text" name="content">
+    <input type="submit">
+</form>
+
+<script>
+    let user = localStorage.getItem('user')
+    if(user){
+        document.getElementById("commenter").value = user
+        let userComments = document.getElementsByClassName(`${user}Comment`)
+        for(let i = 0; i < userComments.length; i++){
+            userComments[i].style.visibility = "visible"
+        }
+    } else {
+        document.getElementById(newComment).style.display = none
+    }
+</script>

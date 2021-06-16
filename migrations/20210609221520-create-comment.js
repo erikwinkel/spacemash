@@ -11,8 +11,8 @@ module.exports = {
       characterId: {
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
+      userId: {
+        type: Sequelize.INTEGER
       },
       content: {
         type: Sequelize.STRING

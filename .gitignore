@@ -2,3 +2,4 @@ P2-notes-and-scratch.md
 .env
 node_modules
 config/config.json
+apiTest.js

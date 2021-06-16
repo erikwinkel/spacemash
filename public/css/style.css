@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+header {
+    background-color: black;
+    color: yellow;
+}
+
+.controls {
+    visibility: hidden;
+}
+
+#user {
+    display: inline;
+}
+
+.radio {
+    display: none;
+}

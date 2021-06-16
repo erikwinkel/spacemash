@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
         <title>Space Mash</title>
     </head>
     <body>
-        <h1>SpaceMash</h1>
-        <nav>navigation goes here</nav>
+        <header class="container">
+            <div class="row">
+                <h1>SpaceMash</h1>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <nav>
+                        <a href="/">Home</a>
+                        <a href="/rankings">Rankings</a>
+                    </nav>
+                </div>
+                <div class="col">
+                    <% if(locals.logout) { %>
+                        <script>
+                            localStorage.clear()
+                        </script> 
+                        <% } %>
+                    <% if(locals.username) { %>
+                        <p id="user">Hello, <%= username %></p>
+                        <a id="logout" href="/logout">Log Out</a>
+                        <script>
+                            if(!localStorage.getItem('user')) {
+                                let user = "<%- username %>"
+                                localStorage.setItem('user', user)
+                            }
+                        </script>
+                    <% } else { %>
+                        <p id="user"></p>
+                        <a id="logout" href="/logout">Log Out</a>
+                        <div id="login">
+                            <a href="/login">Log In</a>
+                            <a href="/signup">Sign Up</a>
+                        </div>
+                        <script>
+                            let currentUser = localStorage.getItem('user')
+                            if(currentUser){
+                                document.getElementById('user').innerText = `Hello, ${currentUser}`
+                                document.getElementById('login').style.display = 'none'
+                            } else {
+                                document.getElementById('logout').style.display = 'none'
+                            }
+                        </script>
+                    <% } %>
+                </div>
+            </div>
+        </header>
         <%- body %>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     </body>
 </html>
