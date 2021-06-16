@@ -11,6 +11,7 @@ header {
 
 .controls {
     visibility: hidden;
+    display: flex;
 }
 
 #user {
@@ -68,4 +69,41 @@ label {
 
 .radio:checked ~ .portrait {
     border: 5px solid gold;
+}
+
+.comment-container {
+    border: 1px solid darkslategrey;
+    width: 400px;
+    margin: 10px;
+
+}
+
+.comment-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid darkslategrey;
+}
+
+.controls form {
+    margin: 5px;
+}
+
+.controls a {
+    margin: 5px;
+}
+
+.comment-user {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.comment-container p {
+    text-align: left;
 }

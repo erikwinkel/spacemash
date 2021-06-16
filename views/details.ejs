@@ -5,22 +5,26 @@
 </div>
 
 <h5>Comments</h5>
-<% if(comments.length) { %>
-    <% comments.forEach(comment => { %>
-        <div>
-            <p><%= comment.user.username %></p>
-            <p><%= comment.content %></p>
-            <div class="controls <%= comment.user.username %>Comment">
-                <a href="/comments/<%= comment.id %>">Edit</a>
-                <form method="POST" action="/comments/<%= comment.id %>?_method=DELETE">
-                    <input type="submit" value="Delete">
-                </form>
+<div class='comment-zone'>
+    <% if(comments.length) { %>
+        <% comments.forEach(comment => { %>
+            <div class="comment-container">
+                <div class="comment-title">
+                    <h6 class="comment-user"><%= comment.user.username %></h6>
+                    <div class="controls <%= comment.user.username %>Comment">
+                        <a class="btn btn-secondary" href="/comments/<%= comment.id %>">Edit</a>
+                        <form method="POST" action="/comments/<%= comment.id %>?_method=DELETE">
+                            <input class="btn btn-secondary" type="submit" value="Delete">
+                        </form>
+                    </div>
+                </div>
+                <p><%= comment.content %></p>
             </div>
-        </div>
-    <% }) %>
-<% } else { %>
-    <p>No comments yet</p>
-<% } %>
+        <% }) %>
+    <% } else { %>
+        <p>No comments yet</p>
+    <% } %>
+</div>
 
 <form id="newComment" method="POST" action="/details/<%= character.id %>/comments">
     <h6>Comment on this character</h4>
