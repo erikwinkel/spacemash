@@ -1,9 +1,9 @@
 <div>
     <% characters.forEach(character => { %>
-        <div>
-            <%= character.name %>
-            <%= character.rank %>
-            <img src='<%= character.image %>'>
+        <div class="rank-container">
+            <h6><%= character.name %></h6>
+            <p>Rating: <%= character.rank %></p>
+            <img class="portrait" src='<%= character.image %>'><br>
             <a href='/details/<%= character.id %>'>Details</a>
         </div>
     <% }) %>
