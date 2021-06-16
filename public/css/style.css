@@ -20,3 +20,33 @@ header {
 .radio {
     display: none;
 }
+
+.vote-container {
+    display: flex;
+    justify-content: center;
+}
+
+.character {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+.portrait {
+    height: 250px;
+    width: 200px;
+}
+
+.rank-container {
+    margin: 20px;
+}
+
+.comment {
+    height: 120px;
+    width: 300px;
+}

@@ -1,6 +1,8 @@
-<h2><%= character.name %></h2>
-<h3><%= character.rank %></h3>
-<img src='<%= character.image %>'>
+<div class="details-container">
+    <h2><%= character.name %></h2>
+    <h3>Rating: <%= character.rank %></h3>
+    <img class="portrait" src='<%= character.image %>'>
+</div>
 
 <h5>Comments</h5>
 <% if(comments.length) { %>
@@ -21,9 +23,9 @@
 <% } %>
 
 <form id="newComment" method="POST" action="/details/<%= character.id %>/comments">
-    <h4>Comment on this character</h4>
+    <h6>Comment on this character</h4>
     <input hidden id="commenter" type="text" name="name">
-    <input type="text" name="content">
+    <input class="comment" type="text" name="content"><br>
     <input type="submit">
 </form>
 
@@ -36,6 +38,6 @@
             userComments[i].style.visibility = "visible"
         }
     } else {
-        document.getElementById(newComment).style.display = none
+        document.getElementById("newComment").style.display = "none"
     }
 </script>
