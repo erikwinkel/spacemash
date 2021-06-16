@@ -3,18 +3,18 @@
     <form method="POST" action="/?_method=PUT">
         <div class="vote-container">
             <div class="character">
-               <label>
+               <label class="vote-box">
+                   <input class="radio" type="radio" name="vote" value="<%= characters[0].name %>" checked="checked"> 
                    <img class="portrait" src='<%= characters[0].image %>'>
                    <a href='/details/<%= characters[0].id %>'>Details</a>
-                   <input class="radio" type="radio" name="vote" value="<%= characters[0].name %>" checked> 
                    <%= characters[0].name %><br> Rating: <%= characters[0].rank %>
                </label>
            </div>
            <div class="character">
-               <label>
+               <label class="vote-box">
+                   <input class="radio" type="radio" name="vote" value="<%= characters[1].name %>">
                    <img class="portrait" src='<%= characters[1].image %>'>
                    <a href='/details/<%= characters[1].id %>'>Details</a>
-                   <input class="radio" type="radio" name="vote" value="<%= characters[1].name %>">
                     <%= characters[1].name %><br> Rating: <%= characters[1].rank %>
                </label>
            </div>

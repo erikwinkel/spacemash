@@ -24,12 +24,14 @@ header {
 .vote-container {
     display: flex;
     justify-content: center;
+    margin: 10px;
 }
 
 .character {
     display: flex;
     flex-direction: column;
     margin: 10px;
+    padding: 10px;
 }
 
 label {
@@ -38,8 +40,9 @@ label {
 }
 
 .portrait {
-    height: 250px;
-    width: 200px;
+    height: 260px;
+    width: 210px;
+    border: 5px solid black;
 }
 
 .rank-container {
@@ -49,4 +52,12 @@ label {
 .comment {
     height: 120px;
     width: 300px;
+}
+
+.vote-box:hover > .portrait {
+    border: 5px solid darkslategrey;
+}
+
+.radio:checked ~ .portrait {
+    border: 5px solid gold;
 }
